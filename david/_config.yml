@@ -19,6 +19,13 @@ permalink: :year/:month/:day/:title/ # 默认永久链接冗长，title中存在
 #permalink: :id.html # 尽量短，层次少，全小写，中划线连字，具有描述性，包含关键词
 permalink_defaults:
 
+#站点推送
+baidu_url_submit:
+  count: 5  # 提交最新链接数
+  host: www.zengmanhua.cn  # 你所提交的域名
+  token: jrv5N3NZOlPV61AY # 秘钥，请不要发布在公众仓库中
+  path: baidu_urls.txt # 文本文档路径，新链接会保存在此文本文档中
+
 # Directory
 source_dir: source
 public_dir: public
@@ -68,6 +75,27 @@ tag_map:
   技术: technology
   其他: other
 
+#豆瓣同步相关
+douban:
+  user: 148384265
+  builtin: false
+  book:
+    title: '我的阅读'
+    quote: '一蓑烟雨任平生 也无风雨也无晴'
+  movie:
+    title: '我的电影'
+    quote: '一蓑烟雨任平生 也无风雨也无晴'
+  timeout: 10000
+
+#RSS订阅
+plugin:
+  - hexo-generator-feed
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
@@ -84,6 +112,13 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+
+#搜索服务
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

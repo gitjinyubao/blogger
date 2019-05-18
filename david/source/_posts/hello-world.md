@@ -4,6 +4,7 @@ tags: 生活
 categories: 生活
 top: 100
 comments: true
+abbrlink: 16107
 ---
 basic footnote[^1]
 here is an inline footnote[^2](inline footnote)

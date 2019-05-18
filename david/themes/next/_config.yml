@@ -143,7 +143,7 @@ exturl: false
 #baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
@@ -158,6 +158,7 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   home: / || home
+  #top: /top/ || signal
   about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
@@ -325,20 +326,26 @@ read_more_btn: true
 # Post meta display settings
 post_meta:
   item_text: true
-  created_at: true
-  updated_at:
-    enable: true
-    another_day: true
+  created_at: true   # 创建时间
+  updated_at: true   # 更新时间
+  # Only show 'updated' if different from 'created'.
+  updated_diff: false # 只使用更新时间
+  # If true, post's time format will be hexo config's date_format + ' ' + time_format.
+  date_time_merge: false
   categories: true
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   separated_meta: true
-  item_text_post: true
-  item_text_total: false
-  awl: 4
-  wpm: 275
+  item_text_post: true     # 文章字数
+  item_text_total: true    # 本站所有文章字数
+  awl: 5
+  wpm: 200
+
+#jiathis分享
+jiathis:
+  uid: 2160658
 
 codeblock:
   # Manual define the border radius in codeblock, leave it blank for the default value: 1
@@ -350,6 +357,10 @@ codeblock:
     show_result: false
     # Style: only 'flat' is currently available, leave it blank if you prefer default theme
     style:
+
+#启用copyright服务
+post_copyright:
+  enable: true
 
 # Wechat Subscriber
 wechat_subscriber:
@@ -692,8 +703,8 @@ gitalk:
 # Baidu Share
 # Available values: button | slide
 # Warning: Baidu Share does not support https.
-#baidushare:
-##  type: button
+baidushare:
+  type: button       # type: button | slide
 
 # AddThis Share, See: https://www.addthis.com
 # Go to https://www.addthis.com/dashboard to customize your tools.
@@ -748,8 +759,12 @@ needmoreshare2:
 # See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
 # ---------------------------------------------------------------
 
-# Baidu Analytics ID
-#baidu_analytics:
+# DaoVoice：网页聊天工具
+daovoice: true
+daovoice_app_id: 3484a04a
+
+# Baidu Analytics ID：百度统计
+baidu_analytics: 4b71d0039cde751d335fa8488a614ead
 
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
@@ -828,12 +843,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: false
-  total_visitors: true
+  enable: true              # 开启busuanzi数据统计
+  total_visitors: true      # 访客
   total_visitors_icon: user
-  total_views: true
+  total_views: true         # 访问量
   total_views_icon: eye
-  post_views: true
+  post_views: true          # 文章阅读次数
   post_views_icon: eye
 
 # Tencent analytics ID
@@ -862,7 +877,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
