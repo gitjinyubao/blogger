@@ -78,5 +78,12 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  - type: git
+    repo:
+      github: git@github.com:gitjinyubao/gitjinyubao.github.io.git
+      coding: git@git.dev.tencent.com:JinYuBao/JinYuBao.git
+    branch: master
+  - type: baidu_url_submitter  # 为deploy新增一个type
