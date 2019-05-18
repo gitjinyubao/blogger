@@ -3,19 +3,20 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
+title: JinYuBao
+subtitle: 生活源于奋斗
+description: 生活源于奋斗
+keywords: life,java,centos,technology,Internet,movie,read
+author: Jin Yu Bao
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://www.zengmanhua.cn
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:title/ # 默认永久链接冗长，title中存在中文字符
+#permalink: :id.html # 尽量短，层次少，全小写，中划线连字，具有描述性，包含关键词
 permalink_defaults:
 
 # Directory
@@ -26,7 +27,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -73,7 +74,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
