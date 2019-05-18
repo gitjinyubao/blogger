@@ -81,10 +81,10 @@ douban:
   builtin: false
   book:
     title: '我的阅读'
-    quote: '一蓑烟雨任平生 也无风雨也无晴'
+    quote: '一蓑烟雨任平生， 也无风雨也无晴！'
   movie:
     title: '我的电影'
-    quote: '一蓑烟雨任平生 也无风雨也无晴'
+    quote: '一蓑烟雨任平生， 也无风雨也无晴！'
   timeout: 10000
 
 #RSS订阅
