@@ -6,14 +6,8 @@ top: 100
 comments: true
 abbrlink: 16107
 ---
-basic footnote[^1]
-here is an inline footnote[^2](inline footnote)
-and another one[^3]
-and another one[^4]
+![](http://prl6c63q7.bkt.clouddn.com/beautiyful.jpg "")
 
-[^1]: basic footnote content
-[^3]: paragraph
-footnote
-content
-[^4]: footnote content with some [markdown](https://en.wikipedia.org/wiki/Markdown)
+### welcome here !
+
 <!-- more -->
