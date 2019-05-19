@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3cc102d-02cc-4c0d-bb2d-0ce525cf5628" name="Default Changelist" comment="页面标题修改">
+    <list default="true" id="a3cc102d-02cc-4c0d-bb2d-0ce525cf5628" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/david/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/source/_posts/hello-world.md" beforeDir="false" afterPath="$PROJECT_DIR$/david/source/_posts/hello-world.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/themes/next/layout/_macro/sidebar.swig" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/layout/_macro/sidebar.swig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/_config.yml" afterDir="false" />
     </list>
     <list id="14946054-1bff-4a2c-b456-907e94650634" name="list" comment="">
       <change afterPath="$PROJECT_DIR$/david/public/images/LogoWhalel.svg" afterDir="false" />
@@ -49,12 +47,20 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/david/themes/next/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="229" column="6" selection-start-line="229" selection-start-column="6" selection-end-line="229" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;ul class=&quot;links-of-blogroll-list&quot;&gt;</find>
-      <find>ima</find>
       <find>app_key</find>
       <find>auto_excerpt:</find>
       <find>images</find>
@@ -83,6 +89,8 @@
       <find>一蓑烟雨任平生 也无风雨也无晴</find>
       <find>swi</find>
       <find>noind</find>
+      <find>social</find>
+      <find>links</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,7 +115,6 @@
         <option value="$PROJECT_DIR$/david/source/tags/index.md" />
         <option value="$PROJECT_DIR$/david/themes/next/layout/_macro/post.swig" />
         <option value="$PROJECT_DIR$/david/themes/next/layout/_partials/head/head.swig" />
-        <option value="$PROJECT_DIR$/david/themes/next/_config.yml" />
         <option value="$PROJECT_DIR$/david/themes/next/source/css/_common/components/sidebar/sidebar-author.styl" />
         <option value="$PROJECT_DIR$/david/themes/next/source/css/_custom/custom.styl" />
         <option value="$PROJECT_DIR$/david/.deploy_git/movies/index.html" />
@@ -117,6 +124,7 @@
         <option value="$PROJECT_DIR$/david/source/_posts/hello-world.md" />
         <option value="$PROJECT_DIR$/david/source/_posts/坑系列-——-缓存-哈希-高并发.md" />
         <option value="$PROJECT_DIR$/david/themes/next/layout/_macro/sidebar.swig" />
+        <option value="$PROJECT_DIR$/david/themes/next/_config.yml" />
       </list>
     </option>
   </component>
@@ -177,23 +185,6 @@
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="next" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="david" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="next" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="david" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="next" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-              <item name="_macro" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -246,7 +237,7 @@
       <workItem from="1558136281049" duration="150000" />
       <workItem from="1558136794424" duration="12500000" />
       <workItem from="1558149438159" duration="172000" />
-      <workItem from="1558150519121" duration="22430000" />
+      <workItem from="1558150519121" duration="22761000" />
     </task>
     <task id="LOCAL-00001" summary="init  博客项目">
       <created>1558137469333</created>
@@ -367,16 +358,31 @@
       <option name="project" value="LOCAL" />
       <updated>1558169827711</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="侧栏加上网易云音乐">
+      <created>1558232615561</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1558232615561</updated>
+    </task>
+    <task id="LOCAL-00019" summary="增加外链接">
+      <created>1558232713872</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1558232713872</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35252000" />
+    <option name="totallyTimeSpent" value="35583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31376517" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31376517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -395,7 +401,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" visible="true" weight="0.31678832" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.1839416" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -479,7 +485,9 @@
     <MESSAGE value="基础功能均已加入" />
     <MESSAGE value="隐藏网页联系的链接" />
     <MESSAGE value="页面标题修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="页面标题修改" />
+    <MESSAGE value="侧栏加上网易云音乐" />
+    <MESSAGE value="增加外链接" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加外链接" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/david/.gitignore">
@@ -654,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/david/themes/next/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="150" column="35" selection-start-line="150" selection-start-column="35" selection-end-line="150" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/david/themes/next/source/css/_common/components/sidebar/sidebar-author.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -758,6 +759,13 @@
             <caret line="16" selection-start-line="16" selection-end-line="16" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/david/themes/next/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="229" column="6" selection-start-line="229" selection-start-column="6" selection-end-line="229" selection-end-column="6" />
         </state>
       </provider>
     </entry>

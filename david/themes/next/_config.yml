@@ -219,14 +219,15 @@ social_icons:
   transition: false
 
 # Blogrolls
-links_title: 推荐阅读
+links_title: -- 推荐浏览网址 --
 #links_layout: block
 links_layout: inline
 links:
   Github: https://www.github.com
   知乎: https://www.zhihu.com
-  优设: http://www.uisdc.com/
+  优设: http://www.uisdc.com
   简书: https://www.jianshu.com
+  CSDN: https://blog.csdn.net
 
 # Sidebar Avatar
 avatar:
