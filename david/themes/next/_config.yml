@@ -164,11 +164,12 @@ menu:
   categories: /categories/ || th
   读书: /books || book
   电影: /movies || film
+  音乐: /music || music
   #游戏: /games || gamepad
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
+  sitemap: /sitemap.xml || sitemap
+  commonweal: /404/ || heartbeat
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -761,6 +762,9 @@ needmoreshare2:
 # See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
 # ---------------------------------------------------------------
 
+#添加共享按钮
+shareto: true
+
 # DaoVoice：网页聊天工具
 daovoice: true
 daovoice_app_id: 3484a04a
@@ -815,7 +819,7 @@ vkontakte_api:
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
-  enable: true
+  enable: false
   id: 18604
   color: fc6423
 # ---------------------------------------------------------------
