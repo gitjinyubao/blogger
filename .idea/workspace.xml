@@ -2,43 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3cc102d-02cc-4c0d-bb2d-0ce525cf5628" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/david/public/images/LogoWhalel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/LogoWhalelTwo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/algolia_logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/alipay.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/apple-touch-icon-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/avatar.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by-nc-nd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by-nc-sa.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by-nc.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by-nd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by-sa.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-by.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/cc-zero.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/favicon-16x16-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/favicon-32x32-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/jinyubao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/jinyubao.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/logo-reddit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/logo-redditTwo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/love.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/placeholder.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/quote-l.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/quote-r.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/searchicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/wanko.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/david/public/images/wechat.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/david/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/david/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/themes/next/layout/_partials/footer.swig" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/layout/_partials/footer.swig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/themes/next/layout/_partials/head/head.swig" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/layout/_partials/head/head.swig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/david/themes/next/source/css/_custom/custom.styl" beforeDir="false" afterPath="$PROJECT_DIR$/david/themes/next/source/css/_custom/custom.styl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/.deploy_git" beforeDir="false" afterPath="$PROJECT_DIR$/david/.deploy_git" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/atom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/atom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/baidu_urls.txt" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/baidu_urls.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/baidusitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/baidusitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/public/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/david/public/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david/source/_posts/LongAdder解析.md" beforeDir="false" />
     </list>
     <list id="14946054-1bff-4a2c-b456-907e94650634" name="list" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,32 +28,8 @@
         <entry file="file://$PROJECT_DIR$/david/source/_posts/LongAdder解析.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="231">
-                <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/david/source/_posts/java并发计数器分析.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="165">
-                <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="14" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/david/source/_posts/坑系列-——-缓存-哈希-高并发.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="99">
-                <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="8" />
+              <first_editor relative-caret-position="198">
+                <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -222,19 +170,6 @@
               <item name="source" type="462c0819:PsiDirectoryNode" />
               <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="david" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="david" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="next" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -290,7 +225,7 @@
       <workItem from="1558149438159" duration="172000" />
       <workItem from="1558150519121" duration="31120000" />
       <workItem from="1558399465357" duration="12183000" />
-      <workItem from="1558569666866" duration="210000" />
+      <workItem from="1558569666866" duration="869000" />
     </task>
     <task id="LOCAL-00001" summary="init  博客项目">
       <created>1558137469333</created>
@@ -439,11 +374,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558315192861</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1. 新增几篇技术文章">
+      <created>1558569919113</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1558569919113</updated>
+    </task>
+    <task id="LOCAL-00023" summary="新增几篇技术文章">
+      <created>1558570162461</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1558570162461</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56335000" />
+    <option name="totallyTimeSpent" value="56994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -463,7 +412,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.18540145" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.21605839" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" />
@@ -555,7 +504,9 @@
     <MESSAGE value="侧栏加上网易云音乐" />
     <MESSAGE value="增加外链接" />
     <MESSAGE value="1. 去掉移动端样式&#10;2. share（分享）位置下移20px" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. 去掉移动端样式&#10;2. share（分享）位置下移20px" />
+    <MESSAGE value="1. 新增几篇技术文章" />
+    <MESSAGE value="新增几篇技术文章" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增几篇技术文章" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/david/.gitignore" />
@@ -851,7 +802,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="165">
-            <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="14" />
+            <caret line="5" column="14" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
@@ -870,8 +821,8 @@
     <entry file="file://$PROJECT_DIR$/david/source/_posts/LongAdder解析.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="231">
-            <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <first_editor relative-caret-position="198">
+            <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>

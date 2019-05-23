@@ -3,16 +3,17 @@ title: LongAdder解析
 tags: [java并发系统学习番外篇]
 top: 202
 comments: true
-date: 2019-05-23 08:01:56
+date: 2019-05-23 08:14:41
 categories: 技术
----                                             
+---
 ### LongAdder解析
 
-![输入图片说明](http://prl6c63q7.bkt.clouddn.com/p1.jpg "在这里输入图片标题")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0523/081419_6c4fdc02_1728187.jpeg "在这里输入图片标题")
 
 ```
 摘要： 对`LongAdder`的最初了解是从Coolshell上的一篇文章中获得的，但是一直都没有深入的了解过其实现，只知道它相较于`AtomicLong`来说，更加适合写多读少的并发情景。今天，我们就研究一下`LongAdder`的原理，探究一下它如此高效的原因。
 ```
+<!-- more -->
 对LongAdder的最初了解是从Coolshell上的一篇文章中获得的，但是一直都没有深入的了解过其实现，只知道它相较于AtomicLong来说，更加适合写多读少的并发情景。今天，我们就研究一下LongAdder的原理，探究一下它如此高效的原因。
 
 #### 基本原理和思想
