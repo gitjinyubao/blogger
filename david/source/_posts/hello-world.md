@@ -2,7 +2,7 @@
 title: Hello World
 tags: 生活
 categories: 生活
-top: 100
+top: 0
 comments: true
 abbrlink: 16107
 ---

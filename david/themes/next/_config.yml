@@ -162,10 +162,11 @@ menu:
   about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
-  读书: /books || book
-  电影: /movies || film
+  #读书: /books || book
+  #电影: /movies || film
   音乐: /music || music
   #游戏: /games || gamepad
+  #照片墙 /photos || camera
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   sitemap: /sitemap.xml || sitemap
