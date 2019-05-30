@@ -6,7 +6,7 @@ abbrlink: 51589
 categories: 技术
 date: 2019-05-22 19:04:00
 ---
-![](http://prl6c63q7.bkt.clouddn.com/beautiyful.jpg "")
+![](http://prl6c63q7.bkt.clouddn.com/p12.jpg)
 #### 前言
 
     一提到线程安全的并发计数器，AtomicLong 必然是第一个被联想到的工具。Atomic* 一系列的原子类以及它们背后的 CAS 无锁算法，常常是高性能，高并发的代名词。本文将会阐释，在并发场景下，使用 AtomicLong 来充当并发计数器将会是一个糟糕的设计，实际上存在不少 AtomicLong 之外的计数器方案。近期我研究了一些 Jdk1.8 以及 JCTools 的优化方案，并将它们的对比与实现细节整理于此。

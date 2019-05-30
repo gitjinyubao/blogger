@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "3484a04a"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="内存溢出&amp;amp;&amp;amp;栈溢出 内存溢出">
+<meta name="keywords" content="java并发系统学习番外篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存溢出&amp;&amp;栈溢出">
+<meta property="og:url" content="https://www.zengmanhua.cn/2019/05/24/内存溢出-栈溢出/index.html">
+<meta property="og:site_name" content="JinYuBao">
+<meta property="og:description" content="内存溢出&amp;amp;&amp;amp;栈溢出 内存溢出">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://prl6c63q7.bkt.clouddn.com/p5.jpg">
+<meta property="og:image" content="http://prl6c63q7.bkt.clouddn.com/b15.jpg">
+<meta property="og:image" content="http://prl6c63q7.bkt.clouddn.com/b16.png">
+<meta property="og:image" content="http://prl6c63q7.bkt.clouddn.com/b17.png">
+<meta property="og:updated_time" content="2019-05-28T07:19:16.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内存溢出&amp;&amp;栈溢出">
+<meta name="twitter:description" content="内存溢出&amp;amp;&amp;amp;栈溢出 内存溢出">
+<meta name="twitter:image" content="http://prl6c63q7.bkt.clouddn.com/p5.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JinYuBao" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://www.zengmanhua.cn/2019/05/24/内存溢出-栈溢出/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>内存溢出&&栈溢出 | JinYuBao</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4b71d0039cde751d335fa8488a614ead";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JinYuBao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">生活源于奋斗</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-读书">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-电影">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/movies" rel="section"><i class="menu-item-icon fa fa-fw fa-film"></i> <br>电影</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-音乐">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/music" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i> <br>音乐</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zengmanhua.cn/2019/05/24/内存溢出-栈溢出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jin Yu Bao">
+      <meta itemprop="description" content="生活源于奋斗">
+      <meta itemprop="image" content="http://prl6c63q7.bkt.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JinYuBao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">内存溢出&&栈溢出
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-24 10:02:54" itemprop="dateCreated datePublished" datetime="2019-05-24T10:02:54+08:00">2019-05-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/24/内存溢出-栈溢出/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/24/内存溢出-栈溢出/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="内存溢出-amp-amp-栈溢出"><a href="#内存溢出-amp-amp-栈溢出" class="headerlink" title="内存溢出&amp;&amp;栈溢出"></a>内存溢出&amp;&amp;栈溢出</h3><p><img src="http://prl6c63q7.bkt.clouddn.com/p5.jpg" alt></p>
+<h4 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h4><a id="more"></a>
+<h5 id="内存溢出的原因是什么？"><a href="#内存溢出的原因是什么？" class="headerlink" title="内存溢出的原因是什么？"></a>内存溢出的原因是什么？</h5><p>内存溢出是由于没被引用的对象（垃圾）过多造成JVM没有及时回收，造成的内存溢出。如果出现这种现象可行代码排查：</p>
+<ul>
+<li><p>是否应用中的类中和引用变量过多使用了Static修饰 如public staitc Student s；在类中的属性中使用 static修饰的最好只用基本类型或字符串。如public static int i = 0; //public static String str;</p>
+</li>
+<li><p>是否 应用 中使用了大量的递归或无限递归（递归中用到了大量的建新的对象）</p>
+</li>
+<li><p>是否App中使用了大量循环或死循环（循环中用到了大量的新建的对象）</p>
+</li>
+<li><p>检查 应用 中是否使用了向数据库查询所有记录的方法。即一次性全部查询的方法，如果数据量超过10万多条了，就可能会造成内存溢出。所以在查询时应采用“分页查询”。</p>
+</li>
+<li><p>检查是否有数组，List，Map中存放的是对象的引用而不是对象，因为这些引用会让对应的对象不能被释放。会大量存储在内存中。</p>
+</li>
+<li><p>检查是否使用了“非字面量字符串进行+”的操作。因为String类的内容是不可变的，每次运行”+”就会产生新的对象，如果过多会造成新String对象过多，从而导致JVM没有及时回收而出现内存溢出。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">如String s1 = &quot;My name&quot;;</span><br><span class="line"></span><br><span class="line">String s2 = &quot;is&quot;;</span><br><span class="line"></span><br><span class="line">String s3 = &quot;xuwei&quot;;</span><br><span class="line"></span><br><span class="line">String str = s1 + s2 + s3 +.........;这是会容易造成内存溢出的</span><br><span class="line"></span><br><span class="line">但是String str =  &quot;My name&quot; + &quot; is &quot; + &quot; xuwei&quot; + &quot; nice &quot; + &quot; to &quot; + &quot; meet you&quot;; //但是这种就不会造成内存溢出。因为这是”字面量字符串“，在运行&quot;+&quot;时就会在编译期间运行好。不会按照JVM来执行的。</span><br><span class="line"></span><br><span class="line">在使用String,StringBuffer,StringBuilder时，如果是字面量字符串进行&quot;+&quot;时，应选用String性能更好；如果是String类进行&quot;+&quot;时，在不考虑线程安全时，应选用StringBuilder性能更好。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHeap</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        <span class="keyword">for</span>(;;)&#123;  <span class="comment">//死循环一直创建对象，堆溢出</span></span><br><span class="line">              ArrayList list = <span class="keyword">new</span> ArrayList (<span class="number">2000</span>);  </span><br><span class="line">          &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">1</span>;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testStack</span><span class="params">()</span></span>&#123;  <span class="comment">//无出口的递归调用，栈溢出</span></span><br><span class="line">        num++;  </span><br><span class="line">        <span class="keyword">this</span>.testStack();  </span><br><span class="line">     &#125;  </span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;  </span><br><span class="line">        Test  t  = <span class="keyword">new</span> Test ();  </span><br><span class="line">        t.testHeap();  </span><br><span class="line">        t.testStack();     </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="栈溢出的原因"><a href="#栈溢出的原因" class="headerlink" title="栈溢出的原因"></a>栈溢出的原因</h4><ul>
+<li><p>是否有递归调用</p>
+</li>
+<li><p>是否有大量循环或死循环</p>
+</li>
+<li><p>全局变量是否过多</p>
+</li>
+<li><p>数组、List、map数据是否过大</p>
+</li>
+<li><p>使用DDMS工具进行查找大概出现栈溢出的位置</p>
+</li>
+</ul>
+<h4 id="JVM系列之实战内存溢出异常"><a href="#JVM系列之实战内存溢出异常" class="headerlink" title="JVM系列之实战内存溢出异常"></a>JVM系列之实战内存溢出异常</h4><h5 id="对象的创建过程"><a href="#对象的创建过程" class="headerlink" title="对象的创建过程"></a>对象的创建过程</h5><p>关于对象的创建，第一反应是new关键字，那么本文就主要讲解new关键字创建对象的过程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student stu =new Student(&quot;张三&quot;，&quot;18&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>就拿上面这句代码来说，虚拟机首先会去检查Student这个类有没有被加载，如果没有，首先去加载这个类到方法区，然后根据加载的Class类对象创建stu实例对象，需要注意的是，stu对象所需的内存大小在Student类加载完成后便可完全确定。内存分配完成后，虚拟机需要将分配到的内存空间的实例数据部分初始化为零值,这也就是为什么我们在编写Java代码时创建一个变量不需要初始化。紧接着，虚拟机会对对象的对象头进行必要的设置，如这个对象属于哪个类，如何找到类的元数据(Class对象),对象的锁信息，GC分代年龄等。设置完对象头信息后，调用类的构造函数。<br>其实讲实话，虚拟机创建对象的过程远不止这么简单，我这里只是把大致的脉络讲解了一下，方便大家理解。</p>
+<h5 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h5><p>刚刚提到的实例数据，对象头，有些小伙伴也许有点陌生，这一小节就详细讲解一下对象的内存布局,对象创建完成后大致可以分为以下几个部分:</p>
+<ul>
+<li>对象头</li>
+<li>实例数据</li>
+<li>对齐填充</li>
+</ul>
+<p><strong><em>对象头</em></strong> : 对象头中包含了对象运行时一些必要的信息，如GC分代信息，锁信息，哈希码，指向Class类元信息的指针等，其中对Javaer比较有用的是锁信息与指向Class对象的指针，关于锁信息，后期有机会讲解并发编程JUC时再扩展，关于指向Class对象的指针其实很好理解。比如上面那个Student的例子，当我们拿到stu对象时，调用Class stuClass=stu.getClass();的时候，其实就是根据这个指针去拿到了stu对象所属的Student类在方法区存放的Class类对象。虽然说的有点拗口，但这句话我反复琢磨了好几遍，应该是说清楚了。^_^</p>
+<p><strong><em>实例数据</em></strong> :实例数据部分是对象真正存储的有效信息，就是程序代码中所定义的各种类型的字段内容。</p>
+<p><strong><em>对齐填充</em></strong> :虚拟机规范要求对象大小必须是8字节的整数倍。对齐填充其实就是来补全对象大小的。</p>
+<h5 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h5><p>谈到对象的访问，还拿上面学生的例子来说，当我们拿到stu对象时，直接调用stu.getName();时，其实就完成了对对象的访问。但这里要累赘说一下的是，stu虽然通常被认为是一个对象，其实准确来说是不准确的，stu只是一个变量，变量里存储的是指向对象的指针，(如果干过C或者C++的小伙伴应该比较清楚指针这个概念)，当我们调用stu.getName()时，虚拟机会根据指针找到堆里面的对象然后拿到实例数据name.需要注意的是，当我们调用stu.getClass()时，虚拟机会首先根据stu指针定位到堆里面的对象，然后根据对象头里面存储的指向Class类元信息的指针再次到方法区拿到Class对象，进行了两次指针寻找。具体讲解图如下:<br><img src="http://prl6c63q7.bkt.clouddn.com/b15.jpg" alt></p>
+<h4 id="实战内存异常"><a href="#实战内存异常" class="headerlink" title="实战内存异常"></a>实战内存异常</h4><p>内存异常是我们工作当中经常会遇到问题，但如果仅仅会通过加大内存参数来解决问题显然是不够的，应该通过一定的手段定位问题，到底是因为参数问题，还是程序问题(无限创建，内存泄露)。定位问题后才能采取合适的解决方案，而不是一内存溢出就查找相关参数加大。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">概念</span><br><span class="line">- 内存泄露:代码中的某个对象本应该被虚拟机回收，但因为拥有GCRoot引用而没有被回收。关于GCRoot概念，下一篇文章讲解。</span><br><span class="line">- 内存溢出: 虚拟机由于堆中拥有太多不可回收对象没有回收，导致无法继续创建新对象。</span><br></pre></td></tr></table></figure>
+<p>在分析问题之前先给大家讲一讲排查内存溢出问题的方法，内存溢出时JVM虚拟机会退出，那么我们怎么知道JVM运行时的各种信息呢，Dump机制会帮助我们，可以通过加上VM参数-XX:+HeapDumpOnOutOfMemoryError让虚拟机在出现内存溢出异常时生成dump文件，然后通过外部工具(作者使用的是VisualVM)来具体分析异常的原因。</p>
+<p>下面从以下几个方面来配合代码实战演示内存溢出及如何定位:</p>
+<ul>
+<li>Java堆内存异常</li>
+<li>Java栈内存异常</li>
+<li>方法区内存异常</li>
+</ul>
+<h5 id="Java堆内存异常"><a href="#Java堆内存异常" class="headerlink" title="Java堆内存异常"></a>Java堆内存异常</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/** VM Args: //这两个参数保证了堆中的可分配内存固定为20M -Xms20m -Xmx20m //文件生成的位置，作则生成在桌面的一个目录 -XX:+HeapDumpOnOutOfMemoryError //文件生成的位置，作则生成在桌面的一个目录 //文件生成的位置，作则生成在桌面的一个目录 -XX:HeapDumpPath=/Users/zdy/Desktop/dump/ */</span><br><span class="line">public class HeapOOM &#123;</span><br><span class="line">    //创建一个内部类用于创建对象使用</span><br><span class="line">    static class OOMObject &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        List&lt;OOMObject&gt; list = new ArrayList&lt;OOMObject&gt;();</span><br><span class="line">        //无限创建对象，在堆中</span><br><span class="line">        while (true) &#123;</span><br><span class="line">            list.add(new OOMObject());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Run起来代码后爆出异常如下:</p>
+<p><strong><em>java.lang.OutOfMemoryError: Java heap space</em></strong><br>Dumping heap to /Users/zdy/Desktop/dump/java_pid1099.hprof …</p>
+<p>可以看到生成了dump文件到指定目录。并且爆出了OutOfMemoryError，还告诉了你是哪一片区域出的问题:heap space</p>
+<p>打开VisualVM工具导入对应的heapDump文件(如何使用请读者自行查阅相关资料)，相应的说明见图:<br><img src="http://prl6c63q7.bkt.clouddn.com/b16.png" alt><br>“类标签”</p>
+<p>切换到”实例数”标签页<br><img src="http://prl6c63q7.bkt.clouddn.com/b17.png" alt><br>“实例数标签”</p>
+<p>分析dump文件后，我们可以知道，OOMObject这个类创建了810326个实例。所以它能不溢出吗？接下来就在代码里找这个类在哪new的。排查问题。(我们的样例代码就不用排查了，While循环太凶猛了)</p>
+<h5 id="Java栈内存异常"><a href="#Java栈内存异常" class="headerlink" title="Java栈内存异常"></a>Java栈内存异常</h5><p>老实说，在栈中出现异常(StackOverFlowError)的概率小到和去苹果专卖店买手机，买回来后发现是Android系统的概率是一样的。因为作者确实没有在生产环境中遇到过，除了自己作死写样例代码测试。先说一下异常出现的情况，前面讲到过，方法调用的过程就是方法帧进虚拟机栈和出虚拟机栈的过程，那么有两种情况可以导致StackOverFlowError,当一个方法帧(比如需要2M内存)进入到虚拟机栈(比如还剩下1M内存)的时候，就会报出StackOverFlow.这里先说一个概念，栈深度:指目前虚拟机栈中没有出栈的方法帧。虚拟机栈容量通过参数-Xss来控制,下面通过一段代码，把栈容量人为的调小一点，然后通过递归调用触发异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** * VM Args： //设置栈容量为160K，默认1M -Xss160k */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackSOF</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stackLength = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackLength++;</span><br><span class="line">        <span class="comment">//递归调用，触发异常</span></span><br><span class="line">        stackLeak();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        JavaVMStackSOF oom = <span class="keyword">new</span> JavaVMStackSOF();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            oom.stackLeak();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"stack length:"</span> + oom.stackLength);</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果如下:<br><strong><em>stack length:751</em></strong><br><strong><em>Exception in thread “main” java.lang.StackOverflowError</em></strong></p>
+<p>可以看到，递归调用了751次，栈容量不够用了。<br>默认的栈容量在正常的方法调用时，栈深度可以达到1000-2000深度，所以，一般的递归是可以承受的住的。如果你的代码出现了StackOverflowError，首先检查代码，而不是改参数。</p>
+<p>这里顺带提一下，很多人在做多线程开发时，当创建很多线程时，容易出现OOM(OutOfMemoryError),这时可以通过具体情况，减少最大堆容量，或者栈容量来解决问题，这是为什么呢。请看下面的公式:</p>
+<p><strong><em>线程数 乘以 (最大栈容量)+最大堆值+其他内存(忽略不计或者一般不改动)=机器最大内存</em></strong></p>
+<p>当线程数比较多时，且无法通过业务上削减线程数，那么再不换机器的情况下，你只能把最大栈容量设置小一点，或者把最大堆值设置小一点。</p>
+<h5 id="方法区内存异常"><a href="#方法区内存异常" class="headerlink" title="方法区内存异常"></a>方法区内存异常</h5><p>写到这里时，作者本来想写一个无限创建动态代理对象的例子来演示方法区溢出，避开谈论JDK7与JDK8的内存区域变更的过渡，但细想一想，还是把这一块从始致终的说清楚。在上一篇文章中JVM系列之Java内存结构详解讲到方法区时提到，JDK7环境下方法区包括了(运行时常量池),其实这么说是不准确的。因为从JDK7开始，HotSpot团队就想到开始去”永久代”,大家首先明确一个概念，方法区和”永久代”(PermGen space)是两个概念，方法区是JVM虚拟机规范，任何虚拟机实现(J9等)都不能少这个区间，而”永久代”只是HotSpot对方法区的一个实现。为了把知识点列清楚，我还是才用列表的形式:</p>
+<ul>
+<li>JDK7之前(包括JDK7)拥有”永久代”(PermGen space),用来实现方法区。但在JDK7中已经逐渐在实现中把永久代中把很多东西移了出来，比如:符号引用(Symbols)转移到了native heap,运行时常量池(interned strings)转移到了java heap；类的静态变量(class statics)转移到了java heap.<br>所以这就是为什么我说上一篇文章中说方法区中包含运行时常量池是不正确的，因为已经移动到了java heap;</li>
+<li>在JDK7之前(包括7)可以通过-XX:PermSize -XX:MaxPermSize来控制永久代的大小.</li>
+<li>JDK8正式去除”永久代”,换成Metaspace(元空间)作为JVM虚拟机规范中方法区的实现。</li>
+<li>元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。因此，默认情况下，元空间的大小仅受本地内存限制，但仍可以通过参数控制:-XX:MetaspaceSize与-XX:MaxMetaspaceSize来控制大小。</li>
+</ul>
+<p>下面作者还是通过一段代码，来不停的创建Class对象，在JDK8中可以看到metaSpace内存溢出:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 作者准备在JDK8下测试方法区，所以设置了Metaspace的大小为固定的8M -XX:MetaspaceSize=8m -XX:MaxMetaspaceSize=8m */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaMethodAreaOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">            enhancer.setSuperclass(OOMObject.class);</span><br><span class="line">            enhancer.setUseCache(<span class="keyword">false</span>);</span><br><span class="line">            enhancer.setCallback(<span class="keyword">new</span> MethodInterceptor() &#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> proxy.invokeSuper(obj, args);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">//无限创建动态代理，生成Class对象</span></span><br><span class="line">            enhancer.create();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">OOMObject</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在JDK8的环境下将报出异常:<br><strong><em>Exception in thread “main” java.lang.OutOfMemoryError: Metaspace</em></strong><br>这是因为在调用CGLib的创建代理时会生成动态代理类，即Class对象到Metaspace,所以While一下就出异常了。<br><strong><em>提醒一下:虽然我们日常叫”堆Dump”,但是dump技术不仅仅是对于”堆”区域才有效，而是针对OOM的，也就是说不管什么区域，凡是能够报出OOM错误的，都可以使用dump技术生成dump文件来分析。</em></strong></p>
+<p>在经常动态生成大量Class的应用中，需要特别注意类的回收状况，这类场景除了例子中的CGLib技术，常见的还有，大量JSP，反射，OSGI等。需要特别注意，当出现此类异常，应该知道是哪里出了问题，然后看是调整参数，还是在代码层面优化。</p>
+<h5 id="附加-直接内存异常"><a href="#附加-直接内存异常" class="headerlink" title="附加-直接内存异常"></a>附加-直接内存异常</h5><p>直接内存异常非常少见，而且机制很特殊，因为直接内存不是直接向操作系统分配内存，而且通过计算得到的内存不够而手动抛出异常，所以当你发现你的dump文件很小，而且没有明显异常，只是告诉你OOM，你就可以考虑下你代码里面是不是直接或者间接使用了NIO而导致直接内存溢出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">来源：https://my.oschina.net/u/2401092/blog/1621850</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Jin Yu Bao 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java并发系统学习番外篇/" rel="tag"><i class="fa fa-tag"></i> java并发系统学习番外篇</a>
+          
+        </div>
+      
+
+      
+      <div style="text-align:center;color: #ccc;font-size:14px;">
+              --------- 感谢您的关注 ---------
+       </div>
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <!-- <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a> -->
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/23/并发编程之线程安全性、安全发布对象/" rel="next" title="并发编程之线程安全性、安全发布对象">
+                <i class="fa fa-chevron-left"></i> 并发编程之线程安全性、安全发布对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/24/ThreadLocal及ThreadLocal内存溢出分析/" rel="prev" title="ThreadLocal及ThreadLocal内存溢出分析">
+                ThreadLocal及ThreadLocal内存溢出分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="http://prl6c63q7.bkt.clouddn.com/avatar.jpg" alt="Jin Yu Bao">
+                </a>
+            
+              <p class="site-author-name" itemprop="name">Jin Yu Bao</p>
+              <div class="site-description motion-element" itemprop="description">生活源于奋斗</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jinyubao" title="GitHub &rarr; https://github.com/jinyubao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:1345551624@qq.com" title="E-Mail &rarr; mailto:1345551624@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                -- 推荐浏览网址 --
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.github.com" title="https://www.github.com" rel="noopener" target="_blank">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com" title="https://www.zhihu.com" rel="noopener" target="_blank">知乎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.uisdc.com" title="http://www.uisdc.com" rel="noopener" target="_blank">优设</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com" title="https://www.jianshu.com" rel="noopener" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net" title="https://blog.csdn.net" rel="noopener" target="_blank">CSDN</a>
+                  </li>
+                
+              </ul>
+              <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("05/18/2019 13:47:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+            </div>
+          
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="280" height="86" src="//music.163.com/outchain/player?type=2&id=455556558&auto=1&height=66"></iframe>
+          
+            
+          
+          <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("05/18/2019 13:47:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存溢出-amp-amp-栈溢出"><span class="nav-number">1.</span> <span class="nav-text">内存溢出&amp;&amp;栈溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存溢出"><span class="nav-number">1.1.</span> <span class="nav-text">内存溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#内存溢出的原因是什么？"><span class="nav-number">1.1.1.</span> <span class="nav-text">内存溢出的原因是什么？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈溢出的原因"><span class="nav-number">1.2.</span> <span class="nav-text">栈溢出的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM系列之实战内存溢出异常"><span class="nav-number">1.3.</span> <span class="nav-text">JVM系列之实战内存溢出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象的创建过程"><span class="nav-number">1.3.1.</span> <span class="nav-text">对象的创建过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象的内存布局"><span class="nav-number">1.3.2.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象的访问定位"><span class="nav-number">1.3.3.</span> <span class="nav-text">对象的访问定位</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实战内存异常"><span class="nav-number">1.4.</span> <span class="nav-text">实战内存异常</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java堆内存异常"><span class="nav-number">1.4.1.</span> <span class="nav-text">Java堆内存异常</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Java栈内存异常"><span class="nav-number">1.4.2.</span> <span class="nav-text">Java栈内存异常</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法区内存异常"><span class="nav-number">1.4.3.</span> <span class="nav-text">方法区内存异常</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#附加-直接内存异常"><span class="nav-number">1.4.4.</span> <span class="nav-text">附加-直接内存异常</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jin Yu Bao</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'TRcVmXJ17nlU8oUlreTjl64y-gzGzoHsz',
+    appKey: 'KTptYJdVQ4QJDnIEuFl9YVAv',
+    placeholder: 'Just go go',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
