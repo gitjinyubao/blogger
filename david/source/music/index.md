@@ -11,4 +11,6 @@ comments: false
 <div class="aplayer" data-id="455556558" data-server="netease" data-type="song" data-mode="single"></div>
 <div class="aplayer" data-id="25706282" data-server="netease" data-type="song" data-mode="single"></div>
 <div class="aplayer" data-id="33705768" data-server="netease" data-type="song" data-mode="single"></div>
+<div class="aplayer" data-id="526668900" data-server="netease" data-type="song" data-mode="single"></div>
+<div class="aplayer" data-id="38592976" data-server="netease" data-type="song" data-mode="single"></div>
 
